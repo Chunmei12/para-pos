@@ -1,0 +1,64 @@
+<ion-navbar *navbar>
+    
+  <ion-title>edit</ion-title>
+  
+   <ion-buttons end>
+    <button (click)="save()">
+      <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+    </button>
+  </ion-buttons>
+  
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+    
+    <ion-item>
+        <ion-label primary stacked>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="product.name" placeholder="Email Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary stacked>Name cn</ion-label>
+        <ion-input type="text" [(ngModel)]="product.name_cn" placeholder="Email Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>Barcode</ion-label>
+        <ion-input type="text" [(ngModel)]="product.barcode" placeholder="Text Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>Quantite</ion-label>
+        <ion-input type="number" [(ngModel)]="product.stockQuantity" placeholder="Text Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>Prix dachat</ion-label>
+        <ion-input type="text" [(ngModel)]="product.buying_price" placeholder="Email Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>Price</ion-label>
+        <ion-input type="text" [(ngModel)]="product.price" placeholder="Email Input"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>TVA</ion-label>
+        <ion-select [(ngModel)]="product.vat._id" (ngModelChange)="vatChanged()" cancelText="Nah" okText="Okay!">        
+            <ion-option *ngFor="let vat of vats" value="{{vat._id}}">
+                {{vat.pourcentage}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label primary fixed>Price TTC</ion-label>
+        <ion-input type="text" [(ngModel)]="product.price_ttc" placeholder="Email Input"></ion-input>
+    </ion-item>
+    
+    <h3 text-center>{{product.created_at}}</h3>
+    <h3 text-center>{{product.updated_at}}</h3>
+    
+  </ion-list>
+</ion-content>

@@ -1,0 +1,35 @@
+
+<ion-navbar *navbar>
+  
+  <ion-title>Product</ion-title>
+  
+  <ion-buttons end>
+    <button (click)="scan()">
+      <ion-icon name="md-qr-scanner"></ion-icon>
+    </button>
+  </ion-buttons>
+  
+</ion-navbar>
+
+
+<ion-content>
+ 
+  <ion-list>
+    <!--<ion-item *ngFor="let product of products">
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{product.name}}</h2>
+      <p>{{product.barcode}}</p>
+      <p> {{product.stockQuantity}} • {{product.price}}</p>
+      <button clear item-right (click)="goToDetail(product)"><ion-icon name="ios-create"></ion-icon></button>
+    </ion-item>-->
+    
+    <button ion-item text-wrap *ngFor="let product of products"  (click)="selectProduct(product)">
+      <h2>{{product.name}}</h2>
+      <h2>{{product.barcode}} <span class="price">{{product.price}}€</span></h2>
+      <h2> {{product.stockQuantity}}  </h2>
+    </button>
+  </ion-list>
+
+</ion-content>
